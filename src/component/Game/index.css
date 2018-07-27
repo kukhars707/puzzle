@@ -1,0 +1,21 @@
+.game {
+    width: 500px;
+    height: 500px;
+    background-size: contain;
+    background-image: url(../../imgbord.jpg);
+}
+
+.start-btn {
+    display: block;
+    margin: 10px auto;
+    border: none;
+    padding: 10px;
+    background-color: greenyellow;
+    text-transform: uppercase;
+}
+
+.wrap td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #000;
+}
