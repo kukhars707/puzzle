@@ -32,9 +32,10 @@ class Game extends Component {
                 {this.state.positions.map((i, key) => {
                     let cellClass = key ? 'game':'empty game';
                     let [x,y] = layout[this.state.positions.indexOf(key)];
+                    let [a,b] = layout[this.state.positions.indexOf(i)];
                     return <div key={key}
                                 onClick={this.newPosition.bind(this, key)}
-                                style={{transform: `translate(${x}px, ${y}px)`}}
+                                style={{transform: `translate(${x}px, ${y}px)`, backgroundPosition: `-${a}px -${b}px`}}
                                 id={`game${key}`}
                                 className={cellClass}></div>
                 })}
