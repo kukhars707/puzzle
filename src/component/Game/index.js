@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './index.css';
 import _ from 'lodash'
+import bg from '../../imgbord.jpg'
 
 const layout = _.range(0, 16).map(n => {
     const row = Math.floor(n / 4);
@@ -29,16 +30,24 @@ class Game extends Component {
     render() {
         return(
             <section className="game-wrapper">
-                {this.state.positions.map((i, key) => {
-                    let cellClass = key ? 'game':'empty game';
-                    let [x,y] = layout[this.state.positions.indexOf(key)];
-                    let [a,b] = layout[this.state.positions.indexOf(i)];
-                    return <div key={key}
-                                onClick={this.newPosition.bind(this, key)}
-                                style={{transform: `translate(${x}px, ${y}px)`, backgroundPosition: `-${a}px -${b}px`}}
-                                id={`game${key}`}
-                                className={cellClass}></div>
-                })}
+                <section className="piece-wrapper">
+                    {this.state.positions.map((i, key) => {
+                        let cellClass = key ? 'game':'empty game';
+                        let [x,y] = layout[this.state.positions.indexOf(key)];
+                        let [a,b] = layout[this.state.positions.indexOf(i)];
+                        return <div key={key}
+                                    onClick={this.newPosition.bind(this, key)}
+                                    style={{transform: `translate(${x}px, ${y}px)`, 
+                                            backgroundPosition: `-${a}px -${b}px`}}
+                                    id={`game${key}`}
+                                    className={cellClass}></div>
+                    })}
+                </section>
+                <section className="example-wrapper">
+                    <div style={{width: '400px'}}>
+                        <img src={bg} alt="game" style={{maxWidth: '100%'}}/>
+                    </div>
+                </section>
             </section>
         )
     }
